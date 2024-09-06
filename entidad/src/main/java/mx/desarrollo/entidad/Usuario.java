@@ -23,6 +23,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author jorge
  */
+
+/**aqui esta uziel xDxD */
 @Entity
 @Table(name = "usuario")
 @XmlRootElement
