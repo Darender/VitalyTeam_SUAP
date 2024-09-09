@@ -1,0 +1,8 @@
+mx\vitalyteam\delegate\DelegateProfesor.class
+mx\vitalyteam\facade\FacadeUnidadAprendizaje.class
+mx\vitalyteam\delegate\DelegateAdministrador.class
+mx\vitalyteam\delegate\DelegateUnidadAprendizaje.class
+mx\vitalyteam\facade\FacadeAdministrador.class
+test\test.class
+mx\vitalyteam\integracion\ServiceFacadeLocator.class
+mx\vitalyteam\facade\FacadeProfesor.class
