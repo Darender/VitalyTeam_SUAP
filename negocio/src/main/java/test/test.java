@@ -5,8 +5,8 @@
  */
 package test;
 
-import mx.desarrollo.entidad.Usuario;
-import mx.desarrollo.integracion.ServiceFacadeLocator;
+import mx.vitalyteam.entidad.Administrador;
+import mx.vitalyteam.integracion.ServiceFacadeLocator;
 
 /**
  *
@@ -14,12 +14,12 @@ import mx.desarrollo.integracion.ServiceFacadeLocator;
  */
 public class test {
     public static void main(String[] args) {
-        Usuario usuario = new Usuario();
+        Administrador admin = new Administrador();
         
-        usuario = ServiceFacadeLocator.getInstanceFacadeUsuario().login("contra123","francisco.reyes.parra@uabc.edu.mx");
+        admin = ServiceFacadeLocator.getInstanceFacadeAdministrador().login("papu","1234567890");
         
-        if(usuario.getIdusuario() != null){
-            System.out.println("Login exitoso con el correo: " + usuario.getCorreo());
+        if(admin.getIdAdmin()!= null){
+            System.out.println("Login exitoso: " + admin.getIdAdmin());
         }else{
             System.out.println("No se encontro registro");
         }

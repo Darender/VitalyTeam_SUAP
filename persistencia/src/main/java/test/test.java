@@ -7,8 +7,8 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
-import mx.desarrollo.DAO.UsuarioDAO;
-import mx.desarrollo.entidad.Usuario;
+import mx.vitalyteam.DAO.AdministradorDAO;
+import mx.vitalyteam.entidad.Administrador;
 
 /**
  *
@@ -16,12 +16,13 @@ import mx.desarrollo.entidad.Usuario;
  */
 public class test {
     public static void main(String[] args) {
-        List<Usuario> listaUsuarios = new ArrayList();
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        listaUsuarios = usuarioDao.findAll();
+        List<Administrador> listaAdministradores = new ArrayList();
+        AdministradorDAO administradordao = new AdministradorDAO();
+        listaAdministradores = administradordao.findAll();
         
-        for(Usuario us : listaUsuarios){
-            System.out.println(us.getCorreo() + " " + us.getContrasena());
+        for(Administrador ad : listaAdministradores){
+            System.out.println("id: " + ad.getIdAdmin());
+            System.out.println("password: " + ad.getPasswordAdmin());
         }
     }
 }

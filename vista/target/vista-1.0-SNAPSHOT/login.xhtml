@@ -61,10 +61,10 @@
                     </div>
                     <div class="panel-body">
                         <div class=" form-group">
-                            <p:inputText class ="form-control" placeholder ="Correo:" autocomplete="false" value ="#{loginUI.usuario.correo}" />
+                            <p:inputText class ="form-control" placeholder ="Id:" autocomplete="false" value ="#{loginUI.administrador.idAdmin}" />
                         </div>
                         <div class="form-group">
-                            <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
+                            <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.administrador.passwordAdmin}" />
                         </div>
                         <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" actionListener ="#{loginUI.login()}" />
 

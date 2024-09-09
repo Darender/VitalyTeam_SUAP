@@ -1,6 +1,6 @@
-mx\desarrollo\delegate\DelegateAlumno.class
-mx\desarrollo\facade\FacadeAlumno.class
+mx\vitalyteam\delegate\DelegateProfesor.class
 test\test.class
-mx\desarrollo\delegate\DelegateUsuario.class
-mx\desarrollo\facade\FacadeUsuario.class
-mx\desarrollo\integracion\ServiceFacadeLocator.class
+mx\vitalyteam\integracion\ServiceFacadeLocator.class
+mx\vitalyteam\delegate\DelegateAdministrador.class
+mx\vitalyteam\facade\FacadeAdministrador.class
+mx\vitalyteam\facade\FacadeProfesor.class
