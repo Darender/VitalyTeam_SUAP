@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido</h1>
+    </div>
+    
+    <div class="navigation">
+        <button id="sized" class="menu">
+            <span></span>
+        </button>
+        <div id="myModal" class="modal">
+            <div class="modal-content animated zoomIn">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                </div>
+                <div class="modal-body nav">
+                    <ul>
+                       <li><a href="#">Consulta</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <hr />
+                    <p>
+                        <b>Servicios:</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cerrar cesion  -->
+   <form action="LogoutServlet" method="post" class="logout-button" id="logoutButton">
+        <button type="submit">Cerrar Sesión</button>
+    </form>
+
+    <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById('sized');
+        var span = document.getElementsByClassName('close')[0];
+        var logoutButton = document.getElementById('logoutButton');
+
+        btn.onclick = function () {
+            modal.style.display = 'block';
+            logoutButton.style.display = 'none'; 
+        };
+
+        span.onclick = function () {
+            modal.style.display = 'none';
+            logoutButton.style.display = 'block'; 
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                logoutButton.style.display = 'block'; 
+            }
+        };
+    </script>
+</body>
+</html>
