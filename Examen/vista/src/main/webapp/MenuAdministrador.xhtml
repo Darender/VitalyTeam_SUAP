@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Menu Admin</title>
+    <link rel="stylesheet" type="text/css" href="StyleAdmin.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido al sistema de administrador</h1>
+    </div>
+    <div class="navigation">
+        <button id="sized" class="menu">
+            <span></span>
+        </button>
+        <div id="myModal" class="modal">
+            <!-- Contenido del Modal -->
+            <div class="modal-content animated zoomIn">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                </div>
+                <div class="modal-body nav">
+                    <ul>
+                        <li><a href="#">Captura de maestro</a></li>
+                        <li><a href="#">Captura de unidad de aprendizaje</a></li>
+                        <li><a href="#">Asignacion de profesores</a></li>
+                        <li><a href="#">Consulta de maestros</a></li>
+                         <li><a href="#">Eliminar registro</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <hr />
+                    <p>
+                        <b>servicios</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cerrar cesion  -->
+   <form action="LogoutServlet" method="post" class="logout-button" id="logoutButton">
+        <button type="submit">Cerrar Sesión</button>
+    </form>
+
+    <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById('sized');
+        var span = document.getElementsByClassName('close')[0];
+        var logoutButton = document.getElementById('logoutButton');
+
+        btn.onclick = function () {
+            modal.style.display = 'block';
+            logoutButton.style.display = 'none'; 
+        };
+
+        span.onclick = function () {
+            modal.style.display = 'none';
+            logoutButton.style.display = 'block'; 
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                logoutButton.style.display = 'block'; 
+            }
+        };
+    </script>
+</body>
+</html>
