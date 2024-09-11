@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Eliminar Profesores del Registro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            table {
+                width: 80%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background-color: #fff;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #007bff;
+                color: white;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            .delete-button {
+                background-color: #dc3545;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: center;
+            }
+            .delete-button:hover {
+                background-color: #c82333;
+            }
+            .center {
+                text-align: center;
+            }
+            .back-button {
+                display: block;
+                text-align: center;
+                background-color: #007bff;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 5px;
+                text-decoration: none;
+                width: 200px;
+                margin: 20px auto;
+            }
+            .back-button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Eliminar Profesores del Registro</h1>
+
+        <!-- Tabla de profesores -->
+        <h:form>
+            <h:dataTable value="#{EliminacionUI.listaProfesores}" var="profesor" border="1">
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                    <h:outputText value="#{profesor.nombreProf}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Apellido Paterno</f:facet>
+                    <h:outputText value="#{profesor.apellidoPProf}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Apellido Materno</f:facet>
+                    <h:outputText value="#{profesor.apellidoMProf}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{profesor.idProf}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">RFC</f:facet>
+                    <h:outputText value="#{profesor.rfcProf}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Eliminar</f:facet>
+                    <h:commandButton value="Eliminar" action="#{EliminacionUI.eliminarProfesor(profesor.idProf)}" styleClass="delete-button" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <!-- Botón para regresar al menú principal -->
+        <a class="back-button" href="MenuAdministrador.xhtml">Volver al Menú Principal</a>
+    </body>
+</html>
