@@ -25,8 +25,14 @@ public class FacadeProfesor {
         return delegateProfesor.login(id);
     }
     
-    public void saveProfesor(Profesor profesor){
-        delegateProfesor.saveProfesor(profesor);
+    public boolean saveProfesor(Profesor profesor){
+        boolean existente = delegateProfesor.RFCExistente(profesor.getRfcProf());
+        if(existente){
+            return false;
+        }else{
+            delegateProfesor.saveProfesor(profesor);
+            return true;
+        }
     }
     
     public List<Profesor> listaProfesores() {
