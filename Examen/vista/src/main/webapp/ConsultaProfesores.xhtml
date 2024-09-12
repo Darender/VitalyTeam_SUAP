@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Consulta de Profesores</title>
+    <link rel="stylesheet" type="text/css" href="ConsultaPro.css" />
+    <script type="text/javascript">
+
+        function mostrarUnidades(profesorId) {
+            document.getElementById('modal-content').innerHTML = '<h2>Unidades de Aprendizaje del Profesor ' + profesorId + '</h2>' +
+                '<table class="responstable">' +
+                '<thead><tr><th>Unidad</th><th>Horas</th></tr></thead>' +
+                '<tbody>' +
+                '<tr><td>Matemáticas</td><td>5</td></tr>' +
+                '<tr><td>Física</td><td>4</td></tr>' +
+                '</tbody>' +
+                '</table>' +
+                '<button onclick="cerrarModal()">OK</button>';
+            document.getElementById('modal').style.display = 'block';
+        }
+
+      
+        function cerrarModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <h1>Consulta <span>de</span> <span>Profesores</span></h1>
+
+    <!-- Tabla de Profesores -->
+    <div class="table-container">
+        <table class="responstable">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>RFC</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td onclick="mostrarUnidades('123456')" style="cursor: pointer;">123456</td>
+                    <td onclick="mostrarUnidades('123456')" style="cursor: pointer;">David</td>
+                    <td>Torres</td>
+                    <td>DTOR890101A12</td> 
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('67890')" style="cursor: pointer;">67890</td>
+                    <td onclick="mostrarUnidades('67890')" style="cursor: pointer;">Serenity</td>
+                    <td>Reyes</td>
+                    <td>SERE950202B34</td> 
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('123678')" style="cursor: pointer;">123678</td>
+                    <td onclick="mostrarUnidades('123678')" style="cursor: pointer;">Uziel</td>
+                    <td>No me acuerdo</td>
+                    <td>UZNM001001C56</td> 
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('456789')" style="cursor: pointer;">456789</td>
+                    <td onclick="mostrarUnidades('456789')" style="cursor: pointer;">Elena</td>
+                    <td>García</td>
+                    <td>ELGA020303D45</td>
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('987654')" style="cursor: pointer;">987654</td>
+                    <td onclick="mostrarUnidades('987654')" style="cursor: pointer;">Luis</td>
+                    <td>Martínez</td>
+                    <td>LUMO010202E67</td>
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">345678</td>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">Ana</td>
+                    <td>Morales</td>
+                    <td>ANMO030404F78</td>
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">345678</td>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">Ana</td>
+                    <td>Morales</td>
+                    <td>ANMO030404F78</td>
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">345678</td>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">Ana</td>
+                    <td>Morales</td>
+                    <td>ANMO030404F78</td>
+                </tr>
+                <tr>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">345678</td>
+                    <td onclick="mostrarUnidades('345678')" style="cursor: pointer;">Ana</td>
+                    <td>Morales</td>
+                    <td>ANMO030404F78</td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content" id="modal-content">
+        </div>
+        <span class="close" onclick="cerrarModal()">&#215;</span>
+    </div>
+    <a class="back-button" href="MenuAdministrador.xhtml">Volver al Menú Principal</a>
+</body>
+</html>
+
