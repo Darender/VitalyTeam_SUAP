@@ -105,6 +105,9 @@ public class CapturaProfesorUI implements Serializable {
     
     }
     
+    public String VMenu() {
+        return "MenuAdministrador?faces-redirect=true"; 
+    }
     
     public Profesor getProfesor() {
         return profesor;
