@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Docente</title>
+    <script type="text/javascript">
+        function validarDocenteForm() {
+            var id = document.getElementById("docenteID").value;
+            if (!/^\d+$/.test(id)) {
+                alert("El ID solo debe contener números.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Login Docente</h1>
+
+    <form action="procesarDocenteLogin.jsp" method="post" onsubmit="return validarDocenteForm();">
+        <label for="docenteID">ID Docente:</label>
+        <!-- Cambiado a input type="number" para aceptar solo números -->
+        <input type="number" id="docenteID" name="docenteID" required /><br/>
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <!-- Botón para regresar a la selección de modo -->
+    <form action="login.xhtml" method="get">
+        <button type="submit">Volver</button>
+    </form>
+</body>
+</html>

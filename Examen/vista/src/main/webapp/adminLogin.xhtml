@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Administrador</title>
+    <script type="text/javascript">
+        function validarAdminForm() {
+            var id = document.getElementById("adminID").value;
+            var password = document.getElementById("password").value;
+
+            // Validar que el ID solo contenga números
+            if (!/^\d+$/.test(id)) {
+                alert("El ID solo debe contener números.");
+                return false;
+            }
+
+            // Validar que se ingrese una contraseña
+            if (password.trim() === '') {
+                alert("Por favor, ingresa la contraseña.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Login Administrador</h1>
+
+    <!-- Formulario para el login de administrador -->
+    <form action="procesarAdminLogin.jsp" method="post" onsubmit="return validarAdminForm();">
+        <label for="adminID">ID Administrador:</label>
+        <!-- El campo de ID solo acepta números mediante el atributo 'input type="number"' -->
+        <input type="number" id="adminID" name="adminID" required /><br/>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required /><br/>
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <!-- Botón para regresar a la selección de modo -->
+    <form action="login.xhtml" method="get">
+        <button type="submit">Volver</button>
+    </form>
+</body>
+</html>
