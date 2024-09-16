@@ -64,20 +64,18 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
 
     @Override
     public void save(T obj) {
-    try {
-        HibernateUtil.getSession();
-        HibernateUtil.beingTransaccion(); 
+        System.out.println("Save ----------");
+        try {
+            HibernateUtil.getSession();
+            HibernateUtil.beingTransaccion();
+            HibernateUtil.getSession().save(obj);
 
-        HibernateUtil.getSession().save(obj);
-
-        HibernateUtil.commitTransaction();
-        
-    } catch (HibernateException e) {
-        HibernateUtil.rollbackTransaction(); 
-    } finally {
-        HibernateUtil.closeSession(); 
+        } catch (HibernateException e) {
+            HibernateUtil.rollbackTransaction();
+        } finally {
+            HibernateUtil.closeSession();
+        }
     }
-}
 
      @Override
     public void update(T obj) {

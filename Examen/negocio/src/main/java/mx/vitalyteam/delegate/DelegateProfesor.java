@@ -15,6 +15,11 @@ import mx.vitalyteam.integracion.ServiceLocator;
  */
 public class DelegateProfesor {
     
+    /**
+     * Metodo para verificar si el profesor esta registrado en la bd
+     * @param id 
+     * @return un tipo profesor si no encuntra el profesor sera null
+     */
     public Profesor login(String id){
         Profesor profe = new Profesor();
         List<Profesor> profesores = ServiceLocator.getInstanceProfesorDAO().findAll();
@@ -27,26 +32,13 @@ public class DelegateProfesor {
         return profe;
     }
     
-  
+    /**
+     * Metodo de ejemplo para guardar profesor
+     * @param profesor de tipo profesor 
+     */
     public void saveProfesor(Profesor profesor){
         ServiceLocator.getInstanceProfesorDAO().save(profesor);
     }
-    
-    public boolean RFCExistente(String RFC) {
-        List<Profesor> unidades = ServiceLocator.getInstanceProfesorDAO().findAll();
-        System.out.println(RFC);
-        for(Profesor ad : unidades){
-            System.out.println(ad.getRfcProf());
-            if(ad.getRfcProf().equals(RFC)){
-                System.out.println("VERDADERO");
-                return true;
-            }
-        }
-        System.out.println("FALSO2");
-        return false;
-    }
-    
-    
     
     public List<Profesor> listaProfesores() {
         return ServiceLocator.getInstanceProfesorDAO().findAll();

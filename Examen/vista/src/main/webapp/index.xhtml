@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <meta charset="UTF-8" />
+    <title>Iniciar Sesión</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* Cambiado a un color más claro para un diseño más suave */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333; /* Mejor contraste para el texto */
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .button-group {
+            margin-bottom: 20px;
+        }
+        .button-group h:commandButton {
+            margin: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #6495ED; /* Añadido borde para los botones */
+            background-color: #6495ED;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .button-group h:commandButton:hover {
+            background-color: #4169E1;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: calc(100% - 16px); /* Ajuste para el padding */
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Asegura que el padding no exceda el width */
+        }
+        .form-group input[type="submit"] {
+            background-color: #6495ED;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #4169E1;
+        }
+        .back-button {
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h:form id="formLogin">
+        <div class="container">
+            <h2>Iniciar Sesión</h2>
+            <!-- Botones para seleccionar el modo -->
+            <div class="button-group">
+                <h:commandButton value="Modo Docente" action="#{loginUI.cambiarModo('docente')}" styleClass="btn" />
+                <h:commandButton value="Modo Administrador" action="#{loginUI.cambiarModo('administrador')}" styleClass="btn" />
+            </div>
+            
+            <!-- Formulario para el modo docente -->
+            <h:panelGroup rendered="#{loginUI.modo eq 'docente'}">
+                <h:panelGroup layout="block" styleClass="form-group">
+                    <h:outputLabel for="idDocente" value="ID Docente:" />
+                    <h:inputText id="idDocente" value="#{loginUI.profesor.idProf}" required="false" />
+                </h:panelGroup>
+                <h:panelGroup layout="block" styleClass="form-group">
+                    <h:commandButton value="Ingresar" action="#{loginUI.loginProfesor()}" />
+                </h:panelGroup>
+            </h:panelGroup>
+            
+            <!-- Formulario para el modo administrador -->
+            <h:panelGroup rendered="#{loginUI.modo eq 'administrador'}">
+                <h:panelGroup layout="block" styleClass="form-group">
+                    <h:outputLabel for="idAdmin" value="ID Administrador:" />
+                    <h:inputText id="idAdmin" value="#{loginUI.administrador.idAdmin}" required="false" />
+                </h:panelGroup>
+                <h:panelGroup layout="block" styleClass="form-group">
+                    <h:outputLabel for="contrasena" value="Contraseña:" />
+                    <h:inputSecret id="contrasena" value="#{loginUI.administrador.passwordAdmin}" required="false" />
+                </h:panelGroup>
+                <h:panelGroup layout="block" styleClass="form-group">
+                    <h:commandButton value="Ingresar" action="#{loginUI.loginAdministrador()}" />
+                </h:panelGroup>
+            </h:panelGroup>
+        </div>
+    </h:form>
+</body>
+</html>

@@ -1,7 +1,5 @@
 mx\vitalyteam\helper\CapturaUA_Helper.class
-mx\vitalyteam\helper\CapturaProfesorHelper.class
 mx\vitalyteam\helper\EliminacionProfesoresHelper.class
-mx\vitalyteam\UI\CapturaProfesorUI.class
 EliminacionProfesoresBeanUI.class
 mx\vitalyteam\UI\CapturaUA_BeanUI.class
 mx\vitalyteam\helper\LoginHelper.class

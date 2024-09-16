@@ -22,6 +22,7 @@
             
            
             div.login{
+                position: absolute;
                 top:0;
                 bottom: 0;
                 left: 0;
@@ -51,11 +52,6 @@
                 
             }
         </style>
-        <script type="text/javascript">
-            function toUpperCase(element) {
-                element.value = element.value.toUpperCase();
-            }
-        </script>
     </h:head>
     <body>
         
@@ -75,24 +71,24 @@
                             <p><strong>Captura la informacion del docente</strong></p>
                         </div>
                         <div class="form-group">
-                             <p:inputText class="form-control" placeholder="RFC:" autocomplete="false" value="#{capPROUI.profesor.rfcProf}" onkeyup="toUpperCase(this)" maxlength="13" />
+                            <p:inputText class="form-control" placeholder="RFC:" autocomplete="false" value="#{profesorBean.profesor.rfcProf}" />
                         </div>
 
                         <div class="form-group">
-                            <p:inputText class="form-control" placeholder="Nombre:" autocomplete="false" value="#{capPROUI.profesor.nombreProf}" maxlength="25" />
+                            <p:inputText class="form-control" placeholder="Nombre:" autocomplete="false" value="#{profesorBean.profesor.nombreProf}" />
                         </div>
             
                         <div class="form-group">
-                            <p:inputText class="form-control" placeholder="Apellido Paterno:" autocomplete="false" value="#{capPROUI.profesor.apellidoPProf}" maxlength="25"/>
+                            <p:inputText class="form-control" placeholder="Apellido Paterno:" autocomplete="false" value="#{profesorBean.profesor.apellidoPProf}" />
                         </div>
             
                         <div class="form-group">
-                            <p:inputText class="form-control" placeholder="Apellido Materno:" autocomplete="false" value="#{capPROUI.profesor.apellidoMProf}" maxlength="25"/>
+                            <p:inputText class="form-control" placeholder="Apellido Materno:" autocomplete="false" value="#{profesorBean.profesor.apellidoMProf}" />
                         </div>
                         
                         <div style="display: flex; flex-wrap: wrap; gap: 10px;" class="form-group">
-                            <p:commandButton update="messages" class="btn btn-success flex-button" value="Guardar" actionListener="#{capPROUI.capturaProfesor()}"/>
-                            <p:commandButton update="messages" class="btn btn-danger flex-button" value="Regresar al menu  principal" action="#{capPROUI.VMenu()}" />
+                            <p:commandButton update="messages" class="btn btn-success flex-button" value="Guardar" actionListener="#{profesorBean.saveProfesor}" />
+                            <p:commandButton update="messages" class="btn btn-danger flex-button" value="Cancelar" />
                         </div>
                         
                     </div>

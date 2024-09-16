@@ -4,10 +4,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Iniciar Sesión</title>
 </head>
-<body>
-    <h2>Login</h2>
+<body style="background-color: #FFDAB9;">
+    <h2>Iniciar Sesión</h2>
     
     <%-- Obtener el modo desde el parámetro enviado --%>
     <% String modo = request.getParameter("modo"); %>
@@ -15,6 +15,7 @@
     <%-- Formulario para el modo docente --%>
     <% if ("docente".equals(modo)) { %>
         <form action="procesarLogin.jsp" method="post">
+            <input type="hidden" name="modo" value="docente" />
             <label for="idDocente">ID Docente:</label>
             <input type="text" id="idDocente" name="idDocente" pattern="[0-9]*" required/>
             <br/>
@@ -25,6 +26,7 @@
     <%-- Formulario para el modo administrador --%>
     <% if ("administrador".equals(modo)) { %>
         <form action="procesarLogin.jsp" method="post">
+            <input type="hidden" name="modo" value="administrador" />
             <label for="idAdmin">ID Administrador:</label>
             <input type="text" id="idAdmin" name="idAdmin" pattern="[0-9]*" required/>
             <br/>
@@ -36,4 +38,3 @@
     <% } %>
 </body>
 </html>
-
