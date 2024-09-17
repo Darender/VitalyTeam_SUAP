@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Búsqueda de Unidades de Aprendizaje</title>
+</h:head>
+
+<h:body>
+    <h:form id="formLearningUnits">
+
+        <!-- Título -->
+        <h1>Buscar Unidades de Aprendizaje</h1>
+
+        <!-- Buscador de unidades de aprendizaje -->
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="searchInput" value="Buscar:" />
+            <p:inputText id="searchInput" value="#{learningUnitBean.searchTerm}" placeholder="Escribe el nombre de la unidad" />
+            <p:commandButton value="Buscar" update="unitList" action="#{learningUnitBean.searchLearningUnits}" icon="ui-icon-search" />
+        </h:panelGrid>
+
+        <!-- Despliegue de todas las unidades de aprendizaje -->
+        <h:panelGrid columns="1" id="unitList" cellpadding="5" style="margin-top: 20px;">
+            <h2>Unidades de Aprendizaje</h2>
+            
+            <!-- Lista de unidades de aprendizaje -->
+            <p:dataTable value="#{learningUnitBean.units}" var="unit" selectionMode="single" 
+                         selection="#{learningUnitBean.selectedUnit}" 
+                         rowKey="#{unit.id}" id="unitTable" paginator="true" rows="10"
+                         style="margin-bottom:20px">
+
+                <!-- Nombre de la Unidad de Aprendizaje -->
+                <p:column headerText="Nombre de la Unidad">
+                    <h:outputText value="#{unit.name}" />
+                </p:column>
+
+                <!-- Al seleccionar una unidad, se muestra la lista de profesores -->
+                <p:ajax event="rowSelect" update="professorList" listener="#{learningUnitBean.onUnitSelect}" />
+
+            </p:dataTable>
+        </h:panelGrid>
+
+        <!-- Lista de profesores asignados a la unidad seleccionada -->
+        <h:panelGrid columns="1" id="professorList" cellpadding="5" style="margin-top: 20px;">
+            <h2>Profesores Asignados</h2>
+
+            <!-- Mostrar lista de profesores cuando se seleccione una unidad -->
+            <p:dataList value="#{learningUnitBean.professors}" var="professor" 
+                        rendered="#{not empty learningUnitBean.professors}">
+                <h:outputText value="#{professor.name}" />
+            </p:dataList>
+
+            <!-- Mensaje si no hay profesores asignados -->
+            <h:outputText value="No hay profesores asignados." rendered="#{empty learningUnitBean.professors}" />
+
+        </h:panelGrid>
+
+    </h:form>
+</h:body>
+</html>

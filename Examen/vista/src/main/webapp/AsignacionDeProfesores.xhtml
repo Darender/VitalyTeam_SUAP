@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="AsignacionesP.css" />
+</head>
+<body>
+    <h1>Asignación <span>de</span> <span>Profesores</span></h1>
+
+    <!-- Tabla de Profesores -->
+    <table class="responstable">
+        <tr>
+            <th>Selección</th>
+            <th data-th="Driver details"><span>ID</span></th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+        <tr>
+            <td><input type="radio" name="profesor" onclick="mostrarUnidades('123456')" /></td>
+            <td>123456</td>
+            <td>David</td>
+            <td>Torres</td> 
+        </tr>
+        <tr>
+            <td><input type="radio" name="profesor" onclick="mostrarUnidades('67890')" /></td>
+            <td>67890</td>
+            <td>Serenity</td>
+            <td>Reyes</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="profesor" onclick="mostrarUnidades('123678')" /></td>
+            <td>123678</td>
+            <td>Uziel</td>
+            <td>No me acuerdo</td>
+        </tr>
+    </table>
+
+    <!-- Tabla de Unidades de Aprendizaje -->
+    <div id="unidadesContainer" style="display: none;">
+        <h2>Unidades de Aprendizaje</h2>
+        <table class="responstable" id="tablaUnidades">
+            <tr>
+                <th>Selección</th>
+                <th>ID Unidad</th>
+                <th>Nombre Unidad</th>
+                <th>Horario</th>
+            </tr>
+        </table>
+        <!-- Botón de Guardado -->
+        <button class="save-button" onclick="confirmarGuardar()">Guardar Asignaciones</button>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&#215;</span>
+            <p>¿Está seguro de que desea guardar las asignaciones?</p>
+            <div class="modal-button-container">
+                <button onclick="guardarAsignaciones()">Sí</button>
+                <button onclick="cerrarModal()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarUnidades(profesorID) {
+            const unidadesContainer = document.getElementById('unidadesContainer');
+            const tablaUnidades = document.getElementById('tablaUnidades');
+            unidadesContainer.style.display = 'block'; 
+            while (tablaUnidades.rows.length > 1) {
+                tablaUnidades.deleteRow(1);
+            }
+            const unidades = {
+                '123456': [
+                    { id: 'U1', nombre: 'Matemáticas', horario: 'Lunes 10:00-12:00' },
+                    { id: 'U2', nombre: 'Física', horario: 'Martes 14:00-16:00' }
+                ],
+                '67890': [
+                    { id: 'U3', nombre: 'Química', horario: 'Miércoles 08:00-10:00' },
+                    { id: 'U4', nombre: 'Biología', horario: 'Jueves 11:00-13:00' }
+                ],
+                '123678': [
+                    { id: 'U5', nombre: 'Historia', horario: 'Viernes 09:00-11:00' }
+                ]
+            };
+
+            if (unidades[profesorID]) {
+                unidades[profesorID].forEach(unidad => {
+                    const row = tablaUnidades.insertRow();
+                    row.innerHTML = 
+                        `<td><input type="checkbox" /></td>
+                        <td>${unidad.id}</td>
+                        <td>${unidad.nombre}</td>
+                        <td>${unidad.horario}</td>`;
+                });
+            }
+        }
+
+        function confirmarGuardar() {
+            document.getElementById('confirmModal').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+        }
+
+        function guardarAsignaciones() {
+            alert("Asignaciones guardadas.");
+            cerrarModal(); 
+        }
+    </script>
+    
+    <a class="back-button" href="MenuAdministrador.xhtml">Volver al Menú Principal</a>
+</body>
+</html>

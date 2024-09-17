@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
         <title>Captura de Unidad de Aprendizaje</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
@@ -20,7 +17,7 @@ and open the template in the editor.
                 text-align: center;
                 color: #333;
             }
-            form {
+            .form-container {
                 max-width: 600px;
                 margin: 30px auto;
                 padding: 20px;
@@ -41,7 +38,7 @@ and open the template in the editor.
                 border: 1px solid #ccc;
                 border-radius: 5px;
             }
-            input[type="submit"] {
+            .btn-success {
                 background-color: #28a745;
                 color: white;
                 padding: 10px 15px;
@@ -51,7 +48,7 @@ and open the template in the editor.
                 width: 100%;
                 margin-bottom: 10px;
             }
-            input[type="submit"]:hover {
+            .btn-success:hover {
                 background-color: #218838;
             }
             .back-button {
@@ -71,37 +68,48 @@ and open the template in the editor.
                 margin-top: 15px;
             }
         </style>
-    </head>
-    <body>
+    </h:head>
+    
+    <h:body>
         <h1>Captura de Unidad de Aprendizaje</h1>
-        <form action="procesar_ua.xhtml" method="post">
-            <label for="nombre_ua">Nombre de la Unidad de Aprendizaje:</label>
-            <input type="text" id="nombre_ua" name="nombre_ua" required="required"/>
+        <h:form class="form-container">
+            <p:messages id="messages" autoUpdate="true" />
 
-            <label for="hra_inicio_clase">Hora de Inicio de Clase:</label>
-            <input type="time" id="hra_inicio_clase" name="hra_inicio_clase" required="required"/>
+            <!-- Nombre de la Unidad de Aprendizaje -->
+            <h:outputLabel for="nombre_ua" value="Nombre de la Unidad de Aprendizaje:" />
+            <p:inputText id="nombre_ua" value="#{capturaUA_UI.unidadAprendizaje.nombreUa}" required="true" />
 
-            <label for="hra_fin_clase">Hora de Fin de Clase:</label>
-            <input type="time" id="hra_fin_clase" name="hra_fin_clase" required="required"/>
+            <!-- Hora de Inicio de Clase -->
+            <h:outputLabel for="hra_inicio_clase" value="Hora de Inicio de Clase:" />
+            <p:calendar id="hra_inicio_clase" value="#{capturaUA_UI.unidadAprendizaje.hraInicioClase}" required="true" timeOnly="true" pattern="HH:mm" />
 
-            <label for="hra_inicio_lab">Hora de Inicio de Laboratorio:</label>
-            <input type="time" id="hra_inicio_lab" name="hra_inicio_lab" required="required"/>
+            <!-- Hora de Fin de Clase -->
+            <h:outputLabel for="hra_fin_clase" value="Hora de Fin de Clase:" />
+            <p:calendar id="hra_fin_clase" value="#{capturaUA_UI.unidadAprendizaje.hraFinClase}" required="true" timeOnly="true" pattern="HH:mm" />
 
-            <label for="hra_fin_lab">Hora de Fin de Laboratorio:</label>
-            <input type="time" id="hra_fin_lab" name="hra_fin_lab" required="required"/>
+            <!-- Hora de Inicio de Laboratorio -->
+            <h:outputLabel for="hra_inicio_lab" value="Hora de Inicio de Laboratorio:" />
+            <p:calendar id="hra_inicio_lab" value="#{capturaUA_UI.unidadAprendizaje.hraInicioLab}" required="true" timeOnly="true" pattern="HH:mm" />
 
-            <label for="hra_inicio_taller">Hora de Inicio de Taller:</label>
-            <input type="time" id="hra_inicio_taller" name="hra_inicio_taller" required="required"/>
+            <!-- Hora de Fin de Laboratorio -->
+            <h:outputLabel for="hra_fin_lab" value="Hora de Fin de Laboratorio:" />
+            <p:calendar id="hra_fin_lab" value="#{capturaUA_UI.unidadAprendizaje.hraFinLab}" required="true" timeOnly="true" pattern="HH:mm" />
 
-            <label for="hra_fin_taller">Hora de Fin de Taller:</label>
-            <input type="time" id="hra_fin_taller" name="hra_fin_taller" required="required"/>
+            <!-- Hora de Inicio de Taller -->
+            <h:outputLabel for="hra_inicio_taller" value="Hora de Inicio de Taller:" />
+            <p:calendar id="hra_inicio_taller" value="#{capturaUA_UI.unidadAprendizaje.hraInicioTaller}" required="true" timeOnly="true" pattern="HH:mm" />
 
-            <input type="submit" value="Enviar"/>
+            <!-- Hora de Fin de Taller -->
+            <h:outputLabel for="hra_fin_taller" value="Hora de Fin de Taller:" />
+            <p:calendar id="hra_fin_taller" value="#{capturaUA_UI.unidadAprendizaje.hraFinTaller}" required="true" timeOnly="true" pattern="HH:mm" />
 
-            <!-- Botón centrado para regresar al menú principal -->
-            <div class="center-button">
-                <a class="back-button" href="menu_principal.xhtml">Volver al Menú Principal</a>
+            <!-- Botón de enviar -->
+            <p:commandButton update="messages" class="btn-success" value="Enviar" actionListener="#{capturaUA_UI.capturaUnidadesAprendizaje()}" />
+
+            <!-- Botón para regresar al menú principal -->
+            <div class="center-button" href="MenuAdministrador.xhtml">
+                <h:link value="Volver al Menú Principal" outcome="MenuAdministrador.xhtml" styleClass="back-button"/>
             </div>
-        </form>
-    </body>
+        </h:form>
+    </h:body>
 </html>

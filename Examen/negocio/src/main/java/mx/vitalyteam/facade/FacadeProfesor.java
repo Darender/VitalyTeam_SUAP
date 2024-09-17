@@ -5,6 +5,7 @@
  */
 package mx.vitalyteam.facade;
 
+import java.util.List;
 import mx.vitalyteam.delegate.DelegateProfesor;
 import mx.vitalyteam.entidad.Profesor;
 
@@ -20,22 +21,25 @@ public class FacadeProfesor {
         this.delegateProfesor = new DelegateProfesor();
     }
     
-     /**
-     * Metodo para verificar si el usuario esta registrado en la bd
-     * @param password 
-     * @param correo
-     * @return Regresa usuario si el correo y contrasena con correctos
-     */
     public Profesor login(String id){
         return delegateProfesor.login(id);
     }
     
-    /**
-     * Metodo de ejemplo para guardar Usuario
-     * @param usuario de tipo usuario con id 0 para poder que se cree un id nuevo
-     */
-    public void saveProfesor(Profesor profesor){
-        delegateProfesor.saveProfesor(profesor);
+    public boolean saveProfesor(Profesor profesor){
+        boolean existente = delegateProfesor.RFCExistente(profesor.getRfcProf());
+        if(existente){
+            return false;
+        }else{
+            delegateProfesor.saveProfesor(profesor);
+            return true;
+        }
     }
     
+    public List<Profesor> listaProfesores() {
+        return delegateProfesor.listaProfesores();
+    }
+    
+    public void eliminarProfesor(int id) {
+        delegateProfesor.eliminarProfesor(id);
+    }
 }
