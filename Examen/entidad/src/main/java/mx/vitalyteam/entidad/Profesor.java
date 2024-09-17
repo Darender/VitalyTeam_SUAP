@@ -145,9 +145,5 @@ public class Profesor implements Serializable {
     public String toString() {
         return "mx.vitalyteam.entidad.Profesor[ idProf=" + idProf + " ]";
     }
-
-    public Object getIdProfesor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

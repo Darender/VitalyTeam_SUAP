@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.vitalyteam.ui;
+package mx.vitalyteam.UI;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -17,9 +17,8 @@ import mx.vitalyteam.entidad.Profesor;
 import mx.vitalyteam.entidad.UnidadAprendizaje;
 import mx.vitalyteam.helper.CapturaProfesorHelper;
 
-@ManagedBean(name = "capPROUI")
+@ManagedBean(name = "capturaUI")
 @SessionScoped
-
 public class CapturaProfesorUI implements Serializable {
     private CapturaProfesorHelper captu;
     private Profesor profesor;

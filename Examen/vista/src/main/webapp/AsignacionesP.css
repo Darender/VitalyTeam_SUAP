@@ -14,7 +14,20 @@ h1 {
 h1 span {
     color: #4CAF50;
 }
-
+.back-button {
+                display: block;
+                text-align: center;
+                background-color: #007bff;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 5px;
+                text-decoration: none;
+                width: 200px;
+                margin: 20px auto;
+            }
+            .back-button:hover {
+                background-color: #0056b3;
+            }
 .save-button {
     display: block;
     margin: 20px auto;
