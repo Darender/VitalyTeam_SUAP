@@ -1,4 +1,4 @@
-package mx.vitalyteam.ui;
+package mx.vitalyteam.UI;
 
 import java.util.ArrayList;
 import java.util.List;
