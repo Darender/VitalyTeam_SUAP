@@ -11,6 +11,10 @@ public class DelegateUnidadAprendizaje {
         ServiceLocator.getUnidadAprendizajeDAO().save(UA);
     }
     
+    public List<UnidadAprendizaje> gerListaUnidades() { 
+        return ServiceLocator.getUnidadAprendizajeDAO().findAll();
+    }
+    
     public boolean nombreUnidadAprendizajeExistente(String nombre) {
         List<UnidadAprendizaje> unidades = ServiceLocator.getUnidadAprendizajeDAO().findAll();
         System.out.println(nombre);

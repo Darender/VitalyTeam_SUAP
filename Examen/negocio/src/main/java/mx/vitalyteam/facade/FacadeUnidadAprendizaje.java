@@ -7,6 +7,7 @@ package mx.vitalyteam.facade;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 import mx.vitalyteam.delegate.DelegateUnidadAprendizaje;
 import mx.vitalyteam.entidad.UnidadAprendizaje;
 
@@ -20,6 +21,10 @@ public class FacadeUnidadAprendizaje {
 
     public FacadeUnidadAprendizaje() {
         this.delegateUa = new DelegateUnidadAprendizaje();
+    }
+    
+    public List<UnidadAprendizaje> gerListaUnidades() {
+        return delegateUa.gerListaUnidades();
     }
     
     public boolean saveUnidadAprendizaje(UnidadAprendizaje ua){

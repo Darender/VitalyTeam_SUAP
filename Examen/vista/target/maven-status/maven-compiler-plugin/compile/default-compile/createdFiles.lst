@@ -1,9 +1,11 @@
-mx\vitalyteam\helper\CapturaUA_Helper.class
 mx\vitalyteam\helper\CapturaProfesorHelper.class
+mx\vitalyteam\helper\ConsultaProfesores_Helper.class
 mx\vitalyteam\helper\EliminacionProfesoresHelper.class
 mx\vitalyteam\ui\LoginBeanUI.class
 EliminacionProfesoresBeanUI.class
+mx\vitalyteam\helper\AsignacionProfesores_Helper.class
 mx\vitalyteam\ui\CapturaProfesorUI.class
-mx\vitalyteam\helper\LoginHelper.class
 mx\vitalyteam\ui\CapturaUA_BeanUI.class
+mx\vitalyteam\helper\CapturaUA_Helper.class
+mx\vitalyteam\helper\LoginHelper.class
 mx\vitalyteam\ui\ConsultaProfesores_BeanUI.class
